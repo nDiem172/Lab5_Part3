@@ -1,11 +1,22 @@
-<div class="container">
-  <h2 style="text-align:center;">Đăng nhập</h2>
-  <form method="POST" action="/auth/login" style="display:flex; flex-direction:column; align-items:center; gap:15px; max-width:350px; margin:0 auto;">
-    <input type="text" name="username" placeholder="Tên đăng nhập" required style="width:100%;">
-    <input type="password" name="password" placeholder="Mật khẩu" required style="width:100%;">
-    <button type="submit" style="width:100%;">Đăng nhập</button>
-  </form>
-  <div style="text-align:center; margin-top:15px;">
-    <a href="/auth/forgot" style="color:#2980b9; font-size:1.1rem; text-decoration:none;">Quên mật khẩu?</a>
-  </div>
+<div class="glass-container">
+    <h2>Đăng nhập</h2>
+    <% if (typeof error !== 'undefined' && error) { %>
+    <div class="error-message">
+        <%= error %>
+    </div>
+<% } %>
+    <form method="POST" action="/auth/login">
+        <div class="glass-input-group">
+            <label for="username">Tên đăng nhập</label>
+            <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập" required>
+        </div>
+        <div class="glass-input-group">
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+        </div>
+        <button type="submit" class="glass-btn">Đăng nhập</button>
+    </form>
+    <div class="link-text">
+        <a href="/auth/forgot">Quên mật khẩu?</a>
+    </div>
 </div>

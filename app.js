@@ -20,6 +20,8 @@ app.use(session({
   saveUninitialized: false
 }));
 
+
+
 // Routes
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');

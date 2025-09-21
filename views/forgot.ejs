@@ -1,7 +1,18 @@
-<h2 style="text-align:center;">Quên mật khẩu</h2>
-<div class="container">
-  <form method="POST" action="/auth/forgot" style="display:flex; flex-direction:column; align-items:center; gap:15px; max-width:350px; margin:0 auto;">
-    <input type="email" name="email" placeholder="Email" required style="width:100%;">
-    <button type="submit" style="width:100%;">Gửi yêu cầu</button>
-  </form>
+<div class="glass-container">
+    <% if (typeof message !== 'undefined' && message) { %>
+    <div class="success-message">
+        <%= message %>
+    </div>
+<% } %>
+    <h2>Quên mật khẩu</h2>
+    <p>
+        Nhập email của bạn để nhận hướng dẫn đặt lại mật khẩu.
+    </p>
+    <form method="POST" action="/auth/forgot">
+        <div class="glass-input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
+        </div>
+        <button type="submit" class="glass-btn">Gửi yêu cầu</button>
+    </form>
 </div>

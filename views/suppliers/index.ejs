@@ -1,15 +1,14 @@
 <% if (!Array.isArray(suppliers)) { %>
-  <div class="error-container">
-    <div class="error-card">
-      <i class="error-icon">⚠️</i>
-      <h3>Lỗi dữ liệu</h3>
+  <div class="glass-container">
+    <div class="error-message">
+      <h3 style="color: #FF6347;">Lỗi dữ liệu</h3>
       <p>Dữ liệu không hợp lệ hoặc bạn đang truy cập nhầm API JSON.</p>
-      <p>Vui lòng truy cập đúng đường dẫn <span class="highlight">/suppliers</span> để xem giao diện bảng nhà cung cấp.</p>
+      <p>Vui lòng truy cập đúng đường dẫn <span style="font-weight: bold;">/suppliers</span> để xem giao diện bảng nhà cung cấp.</p>
     </div>
   </div>
 <% } else { %>
-<div class="suppliers-container">
-  <div class="page-header">
+<div class="home-page-container">
+  <div class="glass-card page-header">
     <div class="header-content">
       <h1 class="page-title">
         <i class="title-icon">🏢</i>
@@ -17,26 +16,26 @@
       </h1>
       <p class="page-subtitle">Quản lý thông tin các nhà cung cấp</p>
     </div>
-    <a href="/suppliers/new" class="add-btn">
+    <a href="/suppliers/new" class="glass-btn primary-glass">
       <i class="btn-icon">+</i>
       Thêm nhà cung cấp
     </a>
   </div>
 
   <% if (suppliers.length === 0) { %>
-    <div class="empty-state">
+    <div class="glass-card empty-state">
       <div class="empty-icon">🏢</div>
       <h3>Chưa có nhà cung cấp nào</h3>
       <p>Hãy thêm nhà cung cấp đầu tiên để bắt đầu quản lý</p>
-      <a href="/suppliers/new" class="empty-btn">Thêm nhà cung cấp ngay</a>
+      <a href="/suppliers/new" class="glass-btn primary-glass">Thêm nhà cung cấp ngay</a>
     </div>
   <% } else { %>
-    <div class="suppliers-grid">
+    <div class="suppliers-grid-container">
       <% suppliers.forEach(supplier => { %>
-        <div class="supplier-card">
+        <div class="supplier-card glass-card">
           <div class="card-header">
             <h3 class="supplier-name"><%= supplier.name %></h3>
-            <div class="supplier-badge">
+            <div class="supplier-badge glass-badge">
               <i class="badge-icon">🏢</i>
               Nhà cung cấp
             </div>
@@ -67,12 +66,12 @@
           </div>
           
           <div class="card-actions">
-            <a href="/suppliers/<%= supplier._id %>/edit" class="action-btn edit-btn">
+            <a href="/suppliers/<%= supplier._id %>/edit" class="action-btn glass-btn edit-btn">
               <i class="btn-icon">✏️</i>
               Sửa
             </a>
             <form method="POST" action="/suppliers/api/<%= supplier._id %>?_method=DELETE" class="delete-form">
-              <button type="submit" class="action-btn delete-btn" onclick="return confirm('Bạn có chắc chắn muốn xóa nhà cung cấp này?')">
+              <button type="submit" class="action-btn glass-btn delete-btn" onclick="return confirm('Bạn có chắc chắn muốn xóa nhà cung cấp này?')">
                 <i class="btn-icon">🗑️</i>
                 Xóa
               </button>
